@@ -26,29 +26,48 @@ namespace E_CommerceApp.Infrastructure.Persistence.Context
         public DbSet<Product> Products { get; set; }
         public DbSet<ShoppingCart> ShoppingCarts { get; set; }
 
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=ECommerceDb;Trusted_Connection=True;MultipleActiveResultSets=True", opt =>
+                {
+                    opt.EnableRetryOnFailure();
+                }); ;
+            }
+        }
+
         public override int SaveChanges()
         {
+            SetCreatedDateBeforeSave();
+
             return base.SaveChanges();
         }
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
         {
+            SetCreatedDateBeforeSave();
+
             return base.SaveChanges(acceptAllChangesOnSuccess);
         }
 
         public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
         {
+            SetCreatedDateBeforeSave();
             return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
+            SetCreatedDateBeforeSave();
             return base.SaveChangesAsync(cancellationToken);
         }
 

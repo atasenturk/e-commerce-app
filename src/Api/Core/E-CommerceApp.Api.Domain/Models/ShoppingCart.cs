@@ -10,6 +10,6 @@ namespace E_CommerceApp.Api.Domain.Models
     {
         public Guid UserId { get; set; }
         public virtual User User { get; set; }
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<ShoppingCartItem> ShoppingCartItems { get; set; }
     }
 }

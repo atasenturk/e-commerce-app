@@ -11,7 +11,7 @@ namespace E_CommerceApp.Api.Domain.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public double Price { get; set; }
-        public ICollection<ShoppingCart> ShoppingCarts { get; set; }
+        public virtual ICollection<ShoppingCartItem> ShoppingCartItems { get; set; }
 
     }
 }

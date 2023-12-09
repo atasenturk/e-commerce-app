@@ -15,7 +15,7 @@ namespace E_CommerceApp.Infrastructure.Persistence.Extensions
     {
         public static IServiceCollection AddInfrastructureRegistration(this IServiceCollection services, IConfiguration configuration)
         {
-            var connStr = configuration["ECommerceConnStr"].ToString();
+            var connStr = configuration.GetConnectionString("ECommerceConnStr");
             services.AddDbContext<ECommerceDbContext>(conf =>
             {
                 conf.UseSqlServer(connStr, opt =>
@@ -24,6 +24,8 @@ namespace E_CommerceApp.Infrastructure.Persistence.Extensions
                 });
             });
 
+            //var seedData = new SeedData();
+            //seedData.SeedAsync(configuration).GetAwaiter().GetResult();
             return services;
         }
     }

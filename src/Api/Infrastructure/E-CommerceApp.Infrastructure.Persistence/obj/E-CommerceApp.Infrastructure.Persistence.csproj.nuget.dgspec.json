@@ -1,17 +1,76 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ata-s\\source\\repos\\E-CommerceApp\\src\\Api\\Infrastructure\\E-CommerceApp.Infrastructure.Persistence\\E-CommerceApp.Infrastructure.Persistence.csproj": {}
+    "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Api\\Infrastructure\\E-CommerceApp.Infrastructure.Persistence\\E-CommerceApp.Infrastructure.Persistence.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ata-s\\source\\repos\\E-CommerceApp\\src\\Api\\Core\\E-CommerceApp.Api.Domain\\E-CommerceApp.Api.Domain.csproj": {
+    "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Api\\Core\\E-CommerceApp.Api.Application\\E-CommerceApp.Api.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ata-s\\source\\repos\\E-CommerceApp\\src\\Api\\Core\\E-CommerceApp.Api.Domain\\E-CommerceApp.Api.Domain.csproj",
-        "projectName": "E-CommerceApp.Api.Domain",
-        "projectPath": "C:\\Users\\ata-s\\source\\repos\\E-CommerceApp\\src\\Api\\Core\\E-CommerceApp.Api.Domain\\E-CommerceApp.Api.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Api\\Core\\E-CommerceApp.Api.Application\\E-CommerceApp.Api.Application.csproj",
+        "projectName": "E-CommerceApp.Api.Application",
+        "projectPath": "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Api\\Core\\E-CommerceApp.Api.Application\\E-CommerceApp.Api.Application.csproj",
         "packagesPath": "C:\\Users\\ata-s\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ata-s\\source\\repos\\E-CommerceApp\\src\\Api\\Core\\E-CommerceApp.Api.Domain\\obj\\",
+        "outputPath": "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Api\\Core\\E-CommerceApp.Api.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\ata-s\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Api\\Core\\E-CommerceApp.Api.Domain\\E-CommerceApp.Api.Domain.csproj": {
+                "projectPath": "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Api\\Core\\E-CommerceApp.Api.Domain\\E-CommerceApp.Api.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Api\\Core\\E-CommerceApp.Api.Domain\\E-CommerceApp.Api.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Api\\Core\\E-CommerceApp.Api.Domain\\E-CommerceApp.Api.Domain.csproj",
+        "projectName": "E-CommerceApp.Api.Domain",
+        "projectPath": "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Api\\Core\\E-CommerceApp.Api.Domain\\E-CommerceApp.Api.Domain.csproj",
+        "packagesPath": "C:\\Users\\ata-s\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Api\\Core\\E-CommerceApp.Api.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ata-s\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -55,18 +114,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ata-s\\source\\repos\\E-CommerceApp\\src\\Api\\Infrastructure\\E-CommerceApp.Infrastructure.Persistence\\E-CommerceApp.Infrastructure.Persistence.csproj": {
+    "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Api\\Infrastructure\\E-CommerceApp.Infrastructure.Persistence\\E-CommerceApp.Infrastructure.Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ata-s\\source\\repos\\E-CommerceApp\\src\\Api\\Infrastructure\\E-CommerceApp.Infrastructure.Persistence\\E-CommerceApp.Infrastructure.Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Api\\Infrastructure\\E-CommerceApp.Infrastructure.Persistence\\E-CommerceApp.Infrastructure.Persistence.csproj",
         "projectName": "E-CommerceApp.Infrastructure.Persistence",
-        "projectPath": "C:\\Users\\ata-s\\source\\repos\\E-CommerceApp\\src\\Api\\Infrastructure\\E-CommerceApp.Infrastructure.Persistence\\E-CommerceApp.Infrastructure.Persistence.csproj",
+        "projectPath": "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Api\\Infrastructure\\E-CommerceApp.Infrastructure.Persistence\\E-CommerceApp.Infrastructure.Persistence.csproj",
         "packagesPath": "C:\\Users\\ata-s\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ata-s\\source\\repos\\E-CommerceApp\\src\\Api\\Infrastructure\\E-CommerceApp.Infrastructure.Persistence\\obj\\",
+        "outputPath": "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Api\\Infrastructure\\E-CommerceApp.Infrastructure.Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ata-s\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -83,11 +142,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\ata-s\\source\\repos\\E-CommerceApp\\src\\Api\\Core\\E-CommerceApp.Api.Domain\\E-CommerceApp.Api.Domain.csproj": {
-                "projectPath": "C:\\Users\\ata-s\\source\\repos\\E-CommerceApp\\src\\Api\\Core\\E-CommerceApp.Api.Domain\\E-CommerceApp.Api.Domain.csproj"
+              "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Api\\Core\\E-CommerceApp.Api.Application\\E-CommerceApp.Api.Application.csproj": {
+                "projectPath": "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Api\\Core\\E-CommerceApp.Api.Application\\E-CommerceApp.Api.Application.csproj"
               },
-              "C:\\Users\\ata-s\\source\\repos\\E-CommerceApp\\src\\Common\\E-CommerceApp.Common\\E-CommerceApp.Common.csproj": {
-                "projectPath": "C:\\Users\\ata-s\\source\\repos\\E-CommerceApp\\src\\Common\\E-CommerceApp.Common\\E-CommerceApp.Common.csproj"
+              "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Api\\Core\\E-CommerceApp.Api.Domain\\E-CommerceApp.Api.Domain.csproj": {
+                "projectPath": "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Api\\Core\\E-CommerceApp.Api.Domain\\E-CommerceApp.Api.Domain.csproj"
+              },
+              "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Common\\E-CommerceApp.Common\\E-CommerceApp.Common.csproj": {
+                "projectPath": "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Common\\E-CommerceApp.Common\\E-CommerceApp.Common.csproj"
               }
             }
           }
@@ -108,21 +170,27 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.3, )"
+              "version": "[6.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.Relational": {
               "target": "Package",
-              "version": "[6.0.3, )"
+              "version": "[6.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.3, )"
+              "version": "[6.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.3, )"
+              "version": "[6.0.6, )"
             }
           },
           "imports": [
@@ -141,18 +209,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ata-s\\source\\repos\\E-CommerceApp\\src\\Common\\E-CommerceApp.Common\\E-CommerceApp.Common.csproj": {
+    "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Common\\E-CommerceApp.Common\\E-CommerceApp.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ata-s\\source\\repos\\E-CommerceApp\\src\\Common\\E-CommerceApp.Common\\E-CommerceApp.Common.csproj",
+        "projectUniqueName": "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Common\\E-CommerceApp.Common\\E-CommerceApp.Common.csproj",
         "projectName": "E-CommerceApp.Common",
-        "projectPath": "C:\\Users\\ata-s\\source\\repos\\E-CommerceApp\\src\\Common\\E-CommerceApp.Common\\E-CommerceApp.Common.csproj",
+        "projectPath": "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Common\\E-CommerceApp.Common\\E-CommerceApp.Common.csproj",
         "packagesPath": "C:\\Users\\ata-s\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ata-s\\source\\repos\\E-CommerceApp\\src\\Common\\E-CommerceApp.Common\\obj\\",
+        "outputPath": "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Common\\E-CommerceApp.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ata-s\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -196,7 +264,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }
