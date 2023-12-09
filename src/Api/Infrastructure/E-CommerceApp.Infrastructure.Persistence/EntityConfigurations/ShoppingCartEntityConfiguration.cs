@@ -11,6 +11,14 @@ namespace E_CommerceApp.Infrastructure.Persistence.EntityConfigurations
             base.Configure(builder);
 
             builder.ToTable("shopping_carts");
+
+            builder.HasMany(s => s.ShoppingCartItems)
+                .WithOne(si => si.ShoppingCart)
+                .HasForeignKey(si => si.ShoppingCartId);
+
+            builder.HasOne(u => u.User)
+                .WithOne(s => s.ShoppingCart)
+                .HasForeignKey<User>(s => s.ShoppingCartId);
         }
     }
 }

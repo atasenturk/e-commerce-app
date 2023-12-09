@@ -17,6 +17,15 @@ namespace E_CommerceApp.Infrastructure.Persistence.EntityConfigurations
             base.Configure(builder);
 
             builder.ToTable("products", ECommerceDbContext.DEFAULT_SCHEMA);
+
+            builder.HasMany(q => q.ShoppingCartItems)
+                .WithOne(q => q.Product)
+                .HasForeignKey(q => q.ProductId);
+
+            builder.HasMany(p => p.ShoppingCartItems)
+                .WithOne(si => si.Product)
+                .HasForeignKey(si => si.ProductId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
 
     }
