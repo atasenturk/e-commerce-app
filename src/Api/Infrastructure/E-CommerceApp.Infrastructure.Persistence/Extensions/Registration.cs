@@ -1,4 +1,6 @@
-﻿using E_CommerceApp.Infrastructure.Persistence.Context;
+﻿using E_CommerceApp.Api.Application.Interfaces.Repositories;
+using E_CommerceApp.Infrastructure.Persistence.Context;
+using E_CommerceApp.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,6 +28,16 @@ namespace E_CommerceApp.Infrastructure.Persistence.Extensions
 
             //var seedData = new SeedData();
             //seedData.SeedAsync(configuration).GetAwaiter().GetResult();
+            return services;
+        }
+
+        public static IServiceCollection AddRepositoriesRegistration(this IServiceCollection services)
+        {
+            services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IShoppingCartRepository, ShoppingCartRepository>();
+            services.AddTransient<DbContext, ECommerceDbContext>();
             return services;
         }
     }

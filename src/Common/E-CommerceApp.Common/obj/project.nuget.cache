@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "8P7/hcPaQamsPvik2r0JypKmd2M4+FctkRT0LdAyDdfdzqBb2Z51fCu1siZHP8Qa5QWGkifRy3/t5aUXclQTsA==",
+  "dgSpecHash": "FXQNwOx0n58Tu6GhgOsx8EVNheE5W4t6/tTI6mjhFjw5eZrA+mTA5WHs1OjGdwJvJLBsQtyzKrddv6C6FC1EgA==",
   "success": true,
   "projectFilePath": "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Common\\E-CommerceApp.Common\\E-CommerceApp.Common.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\ata-s\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\ata-s\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
