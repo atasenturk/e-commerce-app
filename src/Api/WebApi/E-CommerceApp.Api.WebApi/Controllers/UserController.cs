@@ -1,4 +1,5 @@
-﻿using E_CommerceApp.Common.Models.RequestModels;
+﻿using E_CommerceApp.Api.Application.Features.Queries.GetUserShoppingCart;
+using E_CommerceApp.Common.Models.RequestModels;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -23,6 +24,15 @@ namespace E_CommerceApp.Api.WebApi.Controllers
             var result = await mediator.Send(command);
 
             return Ok(result);  
+        }
+
+        [HttpPost]
+        [Route("GetCart")]
+        public async Task<IActionResult> GetCart([FromQuery] GetUserShoppingCartDetailQuery query)
+        {
+            var result = await mediator.Send(query);
+
+            return Ok(result);
         }
     }
 }
