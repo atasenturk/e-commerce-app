@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using E_CommerceApp.Api.Application.Interfaces.Repositories;
@@ -14,6 +15,8 @@ namespace E_CommerceApp.Infrastructure.Persistence.Repositories
     {
         private readonly ECommerceDbContext _context;
 
+        private DbSet<TEntity> Entity => _context.Set<TEntity>();
+
         public GenericRepository(ECommerceDbContext context)
         {
             _context = context;
@@ -21,15 +24,13 @@ namespace E_CommerceApp.Infrastructure.Persistence.Repositories
         public async Task<TEntity> AddAsync(TEntity entity)
         {
             await _context.AddAsync(entity);
-            await _context.SaveChangesAsync();
             return entity;
         }
 
         public async Task DeleteAsync(int id)
         {
             var entity = await GetAsync(id);
-            _context.Set<TEntity>().Remove(entity);
-            await _context.SaveChangesAsync();
+            if (entity != null) this.Entity.Remove(entity);
         }
 
         public async Task<bool> Exists(int id)
@@ -40,7 +41,7 @@ namespace E_CommerceApp.Infrastructure.Persistence.Repositories
 
         public async Task<List<TEntity>> GetAllAsync()
         {
-            return await _context.Set<TEntity>().ToListAsync();
+            return await this.Entity.ToListAsync();
         }
 
         public async Task<TEntity?> GetAsync(int? id)
@@ -49,15 +50,23 @@ namespace E_CommerceApp.Infrastructure.Persistence.Repositories
             {
                 return null;
             }
-            return await _context.Set<TEntity>().FindAsync(id);
+            return await this.Entity.FindAsync(id);
         }
 
-        public async Task UpdateAsync(TEntity entity)
+        public void UpdateAsync(TEntity entity)
         {
             _context.Update(entity);
-            await _context.SaveChangesAsync();
         }
 
-        public IQueryable<TEntity> AsQueryable() => _context.Set<TEntity>().AsQueryable();
+        public IQueryable<TEntity> AsQueryable() => this.Entity.AsQueryable();
+        public int SaveChanges()
+        {
+            return _context.SaveChanges();
+        }
+
+        public Task<int> SaveChangesAsync()
+        {
+            return _context.SaveChangesAsync();
+        }
     }
 }
