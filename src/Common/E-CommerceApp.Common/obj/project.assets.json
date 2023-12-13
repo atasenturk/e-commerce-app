@@ -30,6 +30,16 @@
             "related": ".xml"
           }
         }
+      },
+      "E-CommerceApp.Api.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/E-CommerceApp.Api.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/E-CommerceApp.Api.Domain.dll": {}
+        }
       }
     }
   },
@@ -63,10 +73,16 @@
         "mediatr.contracts.1.0.1.nupkg.sha512",
         "mediatr.contracts.nuspec"
       ]
+    },
+    "E-CommerceApp.Api.Domain/1.0.0": {
+      "type": "project",
+      "path": "../../Api/Core/E-CommerceApp.Api.Domain/E-CommerceApp.Api.Domain.csproj",
+      "msbuildProject": "../../Api/Core/E-CommerceApp.Api.Domain/E-CommerceApp.Api.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "E-CommerceApp.Api.Domain >= 1.0.0",
       "MediatR >= 10.0.1"
     ]
   },
@@ -96,7 +112,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Api\\Core\\E-CommerceApp.Api.Domain\\E-CommerceApp.Api.Domain.csproj": {
+              "projectPath": "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Api\\Core\\E-CommerceApp.Api.Domain\\E-CommerceApp.Api.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -130,7 +150,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

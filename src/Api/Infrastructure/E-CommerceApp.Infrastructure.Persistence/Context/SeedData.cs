@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Bogus;
 using E_CommerceApp.Api.Domain.Models;
-using E_CommerceApp.Common.Infrastructure;
+using E_CommerceApp.Common.Infrastructure.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
