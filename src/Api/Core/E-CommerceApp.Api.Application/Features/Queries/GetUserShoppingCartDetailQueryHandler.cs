@@ -3,10 +3,11 @@ using E_CommerceApp.Api.Application.Interfaces.Repositories;
 using E_CommerceApp.Api.Domain.Models;
 using E_CommerceApp.Common.Infrastructure.Exceptions;
 using E_CommerceApp.Common.Models.Queries;
+using E_CommerceApp.Common.Models.Queries.User;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace E_CommerceApp.Api.Application.Features.Queries.GetUserShoppingCart;
+namespace E_CommerceApp.Api.Application.Features.Queries.User;
 
 public class GetUserShoppingCartDetailQueryHandler : IRequestHandler<GetUserShoppingCartDetailQuery, GetUserShoppingCartDetailViewModel>
 {
@@ -30,7 +31,7 @@ public class GetUserShoppingCartDetailQueryHandler : IRequestHandler<GetUserShop
 
         if (user == null)
         {
-            throw new DatabaseValidationException("User not found!");
+            throw new DatabaseValidationException();
         }
 
         if (user.ShoppingCart == null)
@@ -39,28 +40,42 @@ public class GetUserShoppingCartDetailQueryHandler : IRequestHandler<GetUserShop
             {
                 Id = request.UserId,
                 ProductCount = 0,
-                ShoppingCartItems = new List<ShoppingCartItem>()
+                Products = new List<ProductViewModel>(),
+                TotalPrice = 0
             };
             return entity;
         }
 
-        var products = _shoppingCartRepository.AsQueryable()
+        var shoppingCartItems = _shoppingCartRepository.AsQueryable()
             .Include(q => q.ShoppingCartItems)
-            .ThenInclude(q=>q.Product)
+            .ThenInclude(q => q.Product)
             .Where(q => q.Id == user.ShoppingCartId)
             .Select(q => q.ShoppingCartItems).FirstOrDefaultAsync(cancellationToken: cancellationToken);
 
-        if (products.Result == null)
+        if (shoppingCartItems.Result == null)
         {
             throw new DatabaseValidationException("Products could not be found!");
 
         }
+        var itemsList = shoppingCartItems.Result.ToList();
         var result = new GetUserShoppingCartDetailViewModel
         {
             Id = request.UserId,
-            ProductCount = products.Result.Count,
-            ShoppingCartItems = products.Result.ToList()
-        };
+            ProductCount = itemsList.Count,
+            Products = new List<ProductViewModel>(),
+            TotalPrice = itemsList.Sum(q => q.Product.Price * q.Quantity)
+    };
+
+        foreach (var item in itemsList.Select(cartItem => new ProductViewModel
+                 {
+                     ProductName = cartItem.Product.Name,
+                     Price = cartItem.Product.Price,
+                     Quantity = cartItem.Quantity,
+                     Description = cartItem.Product.Description
+                 }))
+        {
+            result.Products.Add(item);
+        }
 
         return result;
     }

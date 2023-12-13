@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "JSThCSN7SFAo12VJy9rMD9MD4ZWNHkU/IBL+5cgUqEGaUQwWJSt7tDTPXt315giPXFKwf6am8UA3lFzhKnhiTA==",
+  "dgSpecHash": "EzSZgdWXo2hsSR6I1k3VlM0jxtMe+iNBceKBbCkMnzrgQhypCIUMkeKPhni9zG6INuqvv+Urf1TeuwbHQXNrVQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Api\\Infrastructure\\E-CommerceApp.Infrastructure.Persistence\\E-CommerceApp.Infrastructure.Persistence.csproj",
   "expectedPackageFiles": [

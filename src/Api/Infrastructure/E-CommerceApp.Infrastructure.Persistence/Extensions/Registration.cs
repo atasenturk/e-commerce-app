@@ -26,8 +26,9 @@ namespace E_CommerceApp.Infrastructure.Persistence.Extensions
                 });
             });
 
-            var seedData = new SeedData();
-            seedData.SeedAsync(configuration).GetAwaiter().GetResult();
+            //var seedData = new SeedData();
+            //seedData.SeedAsync(configuration).GetAwaiter().GetResult();
+            //return services;
             return services;
         }
 

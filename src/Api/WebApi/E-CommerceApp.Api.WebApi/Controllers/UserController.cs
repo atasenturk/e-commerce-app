@@ -1,8 +1,9 @@
-﻿using E_CommerceApp.Api.Application.Features.Queries.GetUserShoppingCart;
-using E_CommerceApp.Common.Models.RequestModels;
+﻿using E_CommerceApp.Api.Application.Features.Queries.User;
+using E_CommerceApp.Common.Models.RequestModels.User;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace E_CommerceApp.Api.WebApi.Controllers
 {
@@ -15,6 +16,14 @@ namespace E_CommerceApp.Api.WebApi.Controllers
         public UserController(IMediator mediator)
         {
             this.mediator = mediator;
+        }
+        [HttpPost]
+        [Route("CreateUser")]
+        public async Task<IActionResult> GetUsers([FromBody] CreateUserCommand query)
+        {
+            var result = await mediator.Send(query);
+
+            return Ok(result);
         }
 
         [HttpPost]
@@ -29,6 +38,15 @@ namespace E_CommerceApp.Api.WebApi.Controllers
         [HttpPost]
         [Route("GetCart")]
         public async Task<IActionResult> GetCart([FromQuery] GetUserShoppingCartDetailQuery query)
+        {
+            var result = await mediator.Send(query);
+
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("GetUsers")]
+        public async Task<IActionResult> GetUsers([FromQuery] GetUserQuery query)
         {
             var result = await mediator.Send(query);
 

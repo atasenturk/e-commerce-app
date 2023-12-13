@@ -27,13 +27,13 @@ namespace E_CommerceApp.Infrastructure.Persistence.Repositories
             return entity;
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(Guid id)
         {
             var entity = await GetAsync(id);
             if (entity != null) this.Entity.Remove(entity);
         }
 
-        public async Task<bool> Exists(int id)
+        public async Task<bool> Exists(Guid id)
         {
             var entity = await GetAsync(id);
             return entity != null;
@@ -44,7 +44,7 @@ namespace E_CommerceApp.Infrastructure.Persistence.Repositories
             return await this.Entity.ToListAsync();
         }
 
-        public async Task<TEntity?> GetAsync(int? id)
+        public async Task<TEntity?> GetAsync(Guid? id)
         {
             if (id is null)
             {
