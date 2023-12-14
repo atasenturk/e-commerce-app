@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "kHBzi7oloKd3vl7l74UxVMhJtuaZFf1pFTXs/94KLYwXaOsrjM/8JAW6f5TpL8zLO+uqH136OEI8RQO/YnUriw==",
+  "dgSpecHash": "BILGVRoUacFzV+8RlaKzC2r3GMYhHzPUaCbN0osknRm93MeEZr+3McO+SIrUL4V604q6SGV9xodHCUnR8q6bpw==",
   "success": true,
   "projectFilePath": "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Api\\WebApi\\E-CommerceApp.Api.WebApi\\E-CommerceApp.Api.WebApi.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\ata-s\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\ata-s\\.nuget\\packages\\bogus\\34.0.2\\bogus.34.0.2.nupkg.sha512",
     "C:\\Users\\ata-s\\.nuget\\packages\\fluentvalidation\\11.8.1\\fluentvalidation.11.8.1.nupkg.sha512",
+    "C:\\Users\\ata-s\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
     "C:\\Users\\ata-s\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.8.1\\fluentvalidation.dependencyinjectionextensions.11.8.1.nupkg.sha512",
     "C:\\Users\\ata-s\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ata-s\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
