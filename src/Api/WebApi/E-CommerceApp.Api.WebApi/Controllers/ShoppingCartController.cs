@@ -1,4 +1,5 @@
 ﻿using System.Text.Json.Serialization;
+using E_CommerceApp.Common.Enums;
 using E_CommerceApp.Common.Models.RequestModels.User;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -8,7 +9,7 @@ namespace E_CommerceApp.Api.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ShoppingCartController : ControllerBase
+    public class ShoppingCartController : BaseController
     {
         private readonly IMediator mediator;
 
@@ -18,10 +19,14 @@ namespace E_CommerceApp.Api.WebApi.Controllers
         }
 
         [HttpPost]
-        [Route("AddItemToCart")]
-        public async Task<IActionResult> AddItemToCart([FromBody] AddProductToShoppingCartCommand command)
+        [Route("AddOrDeleteItemInCart")]
+        public async Task<IActionResult> AddItemToCart(Guid userId, Guid productId, ActionType actionType)
         {
-            var result = await mediator.Send(command);
+            if (userId == Guid.Empty)
+            {
+                userId = UserId;
+            }
+            var result = await mediator.Send(new AddOrDeleteItemShoppingCartCommand(userId, productId, actionType));
 
             return Ok(result);
         }

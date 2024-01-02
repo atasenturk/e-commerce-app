@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "xPK9N+gvl7lyFkvxgOYfo/Dv4Cs4lCqN5Iuyy/QWfzHlprsXnc2RIkBA6KdMwQhWFK/Ap3jkfqR9EWLX/Uy0rQ==",
+  "dgSpecHash": "ZSr2VUq8XpfMhJEwxZZ3eG0T4H6v1crPqXVrWnIiGAcrgVNTFSef6IE2nD/R0dJWvISWaqCfCkWAazFuVJLpJQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Common\\E-CommerceApp.Common\\E-CommerceApp.Common.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ata-s\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
-    "C:\\Users\\ata-s\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512"
+    "C:\\Users\\ata-s\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\ata-s\\.nuget\\packages\\rabbitmq.client\\6.8.1\\rabbitmq.client.6.8.1.nupkg.sha512",
+    "C:\\Users\\ata-s\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\ata-s\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512"
   ],
   "logs": []
 }

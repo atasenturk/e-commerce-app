@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using E_CommerceApp.Api.Application.Interfaces.Repositories;
 using E_CommerceApp.Api.Domain.Models;
+using E_CommerceApp.Common.Enums;
 using E_CommerceApp.Common.Infrastructure.Exceptions;
 using E_CommerceApp.Common.Infrastructure.Extensions;
 using E_CommerceApp.Common.Models.Queries;
@@ -14,20 +15,20 @@ using Microsoft.EntityFrameworkCore;
 
 namespace E_CommerceApp.Api.Application.Features.Commands.UserShoppingCart
 {
-    internal class AddProductToShoppingCartCommandHandler : IRequestHandler<AddProductToShoppingCartCommand, AddProductToShoppingCartViewModel>
+    public class AddOrDeleteItemShoppingCartCommandHandler : IRequestHandler<AddOrDeleteItemShoppingCartCommand, UserShoppingCartItemViewModel>
     {
         private readonly IUserRepository _userRepository;
         private readonly IProductRepository _productRepository;
         private readonly IShoppingCartRepository _shoppingCartRepository;
 
-        public AddProductToShoppingCartCommandHandler(IUserRepository userRepository, IProductRepository productRepository, IShoppingCartRepository shoppingCartRepository)
+        public AddOrDeleteItemShoppingCartCommandHandler(IUserRepository userRepository, IProductRepository productRepository, IShoppingCartRepository shoppingCartRepository)
         {
             _userRepository = userRepository;
             _productRepository = productRepository;
             _shoppingCartRepository = shoppingCartRepository;
         }
 
-        public async Task<AddProductToShoppingCartViewModel> Handle(AddProductToShoppingCartCommand request, CancellationToken cancellationToken)
+        public async Task<UserShoppingCartItemViewModel> Handle(AddOrDeleteItemShoppingCartCommand request, CancellationToken cancellationToken)
         {
             var user = _userRepository.AsQueryable()
                 .Where(q => q.Id == request.UserId)
@@ -46,9 +47,19 @@ namespace E_CommerceApp.Api.Application.Features.Commands.UserShoppingCart
                 throw new DatabaseValidationException("Product not found!");
             }
 
+            UserShoppingCartItemViewModel result;
+            if (request.Action == ActionType.Add)
+            {
+                return await AddItem(user, product, request);
+            }
+            return await DeleteItem(user, product, request);
+        }
+
+        private async Task<UserShoppingCartItemViewModel> AddItem(Domain.Models.User user, Product product, AddOrDeleteItemShoppingCartCommand request)
+        {
             ShoppingCart? userShoppingCart = user.ShoppingCart;
 
-            var value = new AddProductToShoppingCartViewModel
+            var value = new UserShoppingCartItemViewModel
             {
                 Count = 1,
                 ProductId = product.Id,
@@ -72,7 +83,6 @@ namespace E_CommerceApp.Api.Application.Features.Commands.UserShoppingCart
 
                 user.ShoppingCart = cart;
                 user.ShoppingCartId = cart.Id;
-                //user.ShoppingCart.ShoppingCartItems.Add(itemInCart);
                 _userRepository.UpdateAsync(user);
             }
             else
@@ -96,6 +106,45 @@ namespace E_CommerceApp.Api.Application.Features.Commands.UserShoppingCart
 
                     userShoppingCart.ShoppingCartItems.Add(itemInCart);
                     _shoppingCartRepository.UpdateAsync(userShoppingCart);
+                }
+            }
+            await _userRepository.SaveChangesAsync();
+            await _shoppingCartRepository.SaveChangesAsync();
+
+            return value;
+        }
+
+        private async Task<UserShoppingCartItemViewModel> DeleteItem(Domain.Models.User user, Product product, AddOrDeleteItemShoppingCartCommand request)
+        {
+            ShoppingCart? userShoppingCart = user.ShoppingCart;
+
+            var value = new UserShoppingCartItemViewModel
+            {
+                Count = 0,
+                ProductId = product.Id,
+                UserId = user.Id
+            };
+            if (userShoppingCart == null)
+            {
+                return value;
+            }
+            else
+            {
+                var shoppingCartItem = userShoppingCart.ShoppingCartItems.FirstOrDefault(q => q.ProductId == request.ProductId);
+                if (shoppingCartItem != null)
+                {
+                    shoppingCartItem.Quantity--;
+                    value.Count = shoppingCartItem.Quantity;
+
+                    if (shoppingCartItem.Quantity == 0)
+                    {
+                        userShoppingCart.ShoppingCartItems.Remove(shoppingCartItem);
+                        product.ShoppingCartItems.Remove(shoppingCartItem);
+                    } 
+                }
+                else
+                {
+                    return value;
                 }
             }
             await _userRepository.SaveChangesAsync();

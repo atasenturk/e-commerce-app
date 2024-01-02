@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using E_CommerceApp.Common.Models.Queries;
-using MediatR;
 
-namespace E_CommerceApp.Common.Models.RequestModels.User
+namespace E_CommerceApp.Common.Models.Queries
 {
-    public class AddProductToShoppingCartCommand : IRequest<AddProductToShoppingCartViewModel>
+    public class UserShoppingCartItemViewModel
     {
         public Guid UserId { get; set; }
         public Guid ProductId { get; set; }
+        public int Count { get; set; }
     }
 }

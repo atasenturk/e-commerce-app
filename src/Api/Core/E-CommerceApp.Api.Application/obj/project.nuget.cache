@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "8OLpyzwpKtizJIbjpNObWx/ec9e1YjZRIcY4tJaHWCUVBIFF1SXBxH1sES8eDOajq4R9JIIDLljAygmHr1WCcQ==",
+  "dgSpecHash": "wz48/1S19k0OfY0mEJH8QbFFfJ37Pi9U+o8aFKUhAvLNRtUO6vo9xQVzpZu42pOR4lryqZ5YnbbpZf/zBjd/ZQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\ata-s\\Source\\Repos\\atasenturk\\e-commerce-app\\src\\Api\\Core\\E-CommerceApp.Api.Application\\E-CommerceApp.Api.Application.csproj",
   "expectedPackageFiles": [
@@ -23,9 +23,12 @@
     "C:\\Users\\ata-s\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\ata-s\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
     "C:\\Users\\ata-s\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\ata-s\\.nuget\\packages\\rabbitmq.client\\6.8.1\\rabbitmq.client.6.8.1.nupkg.sha512",
     "C:\\Users\\ata-s\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\ata-s\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
-    "C:\\Users\\ata-s\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    "C:\\Users\\ata-s\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\ata-s\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\ata-s\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512"
   ],
   "logs": []
 }

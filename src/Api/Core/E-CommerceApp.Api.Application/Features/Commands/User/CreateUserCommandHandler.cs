@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using E_CommerceApp.Api.Application.Interfaces.Repositories;
+using E_CommerceApp.Common;
+using E_CommerceApp.Common.Infrastructure;
 using E_CommerceApp.Common.Infrastructure.Exceptions;
 using E_CommerceApp.Common.Infrastructure.Extensions;
 using E_CommerceApp.Common.Models.Queries.User;
@@ -33,8 +35,16 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Creat
         newEntity.Password = PasswordEncryptor.Encrypt(newEntity.Password);
         newEntity.UserName = UsernameGenerator.GenerateUsername(newEntity.FirstName, newEntity.LastName);
 
-        await _userRepository.AddAsync(newEntity);
-        await _userRepository.SaveChangesAsync();
+        var @event = newEntity;
+
+        RabbitMQFactory.SendMessageToQueue(
+            exchangeName: AppConstants.UserExchangeName,
+            exchangeType: AppConstants.DefaultExhangeType,
+            queueName: AppConstants.UserCreatedQueueName,
+            obj: @event);
+
+        //await _userRepository.AddAsync(newEntity);
+        //await _userRepository.SaveChangesAsync();
 
         return _mapper.Map<CreateUserViewModel>(newEntity);
     }
