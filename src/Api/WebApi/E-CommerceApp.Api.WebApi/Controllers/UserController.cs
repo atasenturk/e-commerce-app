@@ -1,6 +1,7 @@
 ﻿using E_CommerceApp.Api.Application.Features.Queries.User;
 using E_CommerceApp.Common.Models.RequestModels.User;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -9,7 +10,7 @@ namespace E_CommerceApp.Api.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class UserController : BaseController
     {
         private readonly IMediator mediator;
 
@@ -28,6 +29,7 @@ namespace E_CommerceApp.Api.WebApi.Controllers
 
         [HttpPost]
         [Route("Login")]
+        [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody] LoginUserCommand command)
         {
             var result = await mediator.Send(command);

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using E_CommerceApp.Api.Domain.Models;
 using E_CommerceApp.Common.Infrastructure;
+using E_CommerceApp.Common.Models.Queries.Product;
 using E_CommerceApp.Common.Models.Queries.User;
 using E_CommerceApp.Common.Models.RequestModels.User;
 
@@ -22,6 +23,8 @@ namespace E_CommerceApp.Api.Application.Mapping
             CreateMap<CreateUserCommand, User>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => Guid.NewGuid()));
             CreateMap<User, CreateUserViewModel>()
+                .ReverseMap();
+            CreateMap<Product, ProductItemListViewModel>()
                 .ReverseMap();
         }
     }

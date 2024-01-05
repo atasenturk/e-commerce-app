@@ -16,8 +16,4 @@
     <ProjectReference Include="..\..\Api\Core\E-CommerceApp.Api.Domain\E-CommerceApp.Api.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\Queries\Product\" />
-  </ItemGroup>
-
 </Project>

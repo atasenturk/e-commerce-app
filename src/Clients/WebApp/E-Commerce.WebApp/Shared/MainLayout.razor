@@ -7,6 +7,23 @@
 
     <main>
         <div class="top-row px-4">
+            <AuthorizeView>
+                <Authorized>
+                    <div class="container-user-info">
+                        <span class="lbl-username">
+                            Logged In!
+                        </span>
+                    </div>
+                </Authorized>
+                <NotAuthorized>
+                    <div class="container-user-info">
+                        <span class="lbl-username">
+                            Not Logged In!
+                        </span>
+                    </div>
+                </NotAuthorized>
+            </AuthorizeView>
+
             <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
         </div>
 

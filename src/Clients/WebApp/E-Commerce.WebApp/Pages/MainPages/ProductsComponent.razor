@@ -1,0 +1,41 @@
+﻿@page "/products"
+<link href="css/webapp-css/webapp.css" rel="stylesheet" />
+
+<PageTitle>Products</PageTitle>
+
+<h1>Product</h1>
+
+<div class="card-product">
+    <ul>
+        @foreach (var product in products)
+        {
+            <div class="card-product-item">
+                <h5>@product.Name</h5>
+                <p>@product.Description</p>
+                <h6 class="price">@($"{product.Price:0.00}") TL</h6>
+                <a class="btn-add-cart" href="/@product.Id">Sepete Ekle</a>
+            </div>
+        }
+    </ul>
+</div>
+
+
+
+@code {
+    [Inject]
+    IProductService _productService { get; set; }
+
+    List<ProductItemListViewModel> products = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetProducts();
+    }
+
+    public async Task GetProducts()
+    {
+        products = await _productService.GetProducts();
+        StateHasChanged();
+    }
+
+}

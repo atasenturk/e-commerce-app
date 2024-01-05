@@ -35,7 +35,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{EED0
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApp", "WebApp", "{864A2F69-4427-4CFE-BBF9-C9E582043E68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Commerce.WebApp", "src\Clients\WebApp\E-Commerce.WebApp\E-Commerce.WebApp.csproj", "{CF04C983-5305-45BC-9183-DFB966EA9712}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Commerce.WebApp", "src\Clients\WebApp\E-Commerce.WebApp\E-Commerce.WebApp.csproj", "{CF04C983-5305-45BC-9183-DFB966EA9712}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
