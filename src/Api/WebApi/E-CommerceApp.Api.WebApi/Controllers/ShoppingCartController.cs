@@ -20,13 +20,13 @@ namespace E_CommerceApp.Api.WebApi.Controllers
 
         [HttpPost]
         [Route("AddOrDeleteItemInCart")]
-        public async Task<IActionResult> AddItemToCart(Guid userId, Guid productId, ActionType actionType)
+        public async Task<IActionResult> AddItemToCart(AddOrDeleteItemShoppingCartCommand addOrDeleteItemShoppingCartCommand)
         {
-            if (userId == Guid.Empty)
+            if (addOrDeleteItemShoppingCartCommand.UserId == Guid.Empty)
             {
-                userId = UserId;
+                addOrDeleteItemShoppingCartCommand.UserId = UserId;
             }
-            var result = await mediator.Send(new AddOrDeleteItemShoppingCartCommand(userId, productId, actionType));
+            var result = await mediator.Send(addOrDeleteItemShoppingCartCommand);
 
             return Ok(result);
         }

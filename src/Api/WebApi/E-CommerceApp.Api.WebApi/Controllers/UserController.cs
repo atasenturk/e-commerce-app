@@ -39,7 +39,7 @@ namespace E_CommerceApp.Api.WebApi.Controllers
 
         [HttpPost]
         [Route("GetCart")]
-        public async Task<IActionResult> GetCart([FromQuery] GetUserShoppingCartDetailQuery query)
+        public async Task<IActionResult> GetCart([FromBody] GetUserShoppingCartDetailQuery query)
         {
             var result = await mediator.Send(query);
 

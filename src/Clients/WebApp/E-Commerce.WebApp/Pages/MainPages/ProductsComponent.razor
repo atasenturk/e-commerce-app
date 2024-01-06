@@ -1,4 +1,6 @@
 ﻿@page "/products"
+@using E_Commerce.WebApp.Infrastructure.Extensions
+@using E_CommerceApp.Common.Enums
 <link href="css/webapp-css/webapp.css" rel="stylesheet" />
 
 <PageTitle>Products</PageTitle>
@@ -13,20 +15,25 @@
                 <h5>@product.Name</h5>
                 <p>@product.Description</p>
                 <h6 class="price">@($"{product.Price:0.00}") TL</h6>
-                <a class="btn-add-cart" href="/@product.Id">Sepete Ekle</a>
+                <AuthorizeView>
+                    <Authorized>
+                        <a class="btn-add-cart" @onclick="@(() => AddToCart(product.Id))">Sepete Ekle</a>
+                    </Authorized>
+                </AuthorizeView>
             </div>
         }
     </ul>
 </div>
 
 
-
 @code {
     [Inject]
     IProductService _productService { get; set; }
-
+    [Inject]
+    AuthenticationStateProvider authenticationStateProvider { get; set; }
+    [Inject]
+    IShoppingCartService shoppingCartService { get; set; }
     List<ProductItemListViewModel> products = new();
-
     protected override async Task OnInitializedAsync()
     {
         await GetProducts();
@@ -36,6 +43,12 @@
     {
         products = await _productService.GetProducts();
         StateHasChanged();
+    }
+
+    public async Task AddToCart(Guid productId)
+    {
+        var userId = await authenticationStateProvider.GetUserId();
+        var result = await shoppingCartService.AddItemToCart(new AddOrDeleteItemShoppingCartCommand(userId, productId, ActionType.Add));
     }
 
 }

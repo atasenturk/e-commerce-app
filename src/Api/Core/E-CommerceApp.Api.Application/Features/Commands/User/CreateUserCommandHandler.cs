@@ -37,14 +37,14 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Creat
 
         var @event = newEntity;
 
-        RabbitMQFactory.SendMessageToQueue(
-            exchangeName: AppConstants.UserExchangeName,
-            exchangeType: AppConstants.DefaultExhangeType,
-            queueName: AppConstants.UserCreatedQueueName,
-            obj: @event);
+        //RabbitMQFactory.SendMessageToQueue(
+        //    exchangeName: AppConstants.UserExchangeName,
+        //    exchangeType: AppConstants.DefaultExhangeType,
+        //    queueName: AppConstants.UserCreatedQueueName,
+        //    obj: @event);
 
-        //await _userRepository.AddAsync(newEntity);
-        //await _userRepository.SaveChangesAsync();
+        await _userRepository.AddAsync(newEntity);
+        await _userRepository.SaveChangesAsync();
 
         return _mapper.Map<CreateUserViewModel>(newEntity);
     }

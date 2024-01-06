@@ -9,5 +9,3 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = E_CommerceApp.Infrastructure.Persistence
 build_property.ProjectDir = C:\Users\ata-s\Source\Repos\atasenturk\e-commerce-app\src\Api\Infrastructure\E-CommerceApp.Infrastructure.Persistence\
-build_property.EnableComHosting = 
-build_property.EnableGeneratedComInterfaceComImportInterop = 

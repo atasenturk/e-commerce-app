@@ -1,0 +1,84 @@
+﻿@page "/register"
+
+<div class="container">
+    <EditForm Model="@_createUserCommand" OnValidSubmit="RegisterProcess">
+        <div class="form-group">
+            <label for="FirstName">First Name</label>
+            <input @bind="_createUserCommand.FirstName" type="text" class="form-control" id="FirstName" placeholder="Enter first name">
+        </div>
+
+        <div class="form-group">
+            <label for="LastName">Last Name</label>
+            <input @bind="_createUserCommand.LastName" type="text" class="form-control" id="LastName" placeholder="Enter last name">
+        </div>
+
+        <div class="form-group">
+            <label for="Email">Email</label>
+            <input @bind="_createUserCommand.Email" type="email" class="form-control" id="Email" placeholder="Enter email">
+        </div>
+
+        <div class="form-group">
+            <label for="Address">Address</label>
+            <input @bind="_createUserCommand.Address" type="text" class="form-control" id="Address" placeholder="Enter address">
+        </div>
+
+        <div class="form-group">
+            <label for="Password">Password</label>
+            <input @bind="_createUserCommand.Password" type="password" class="form-control" id="Password" placeholder="Enter password">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Register</button>
+    </EditForm>
+</div>
+
+@if (showModal)
+{
+    <div class="modal">
+        <div class="modal-content">
+            <p>Kaydınız başarıyla oluşturuldu. Giriş sayfasına yönlendiriliyorsunuz...</p>
+        </div>
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(errorStr))
+{
+    <div class="alert alert-danger" role="alert">
+        @errorStr
+    </div>
+}
+
+@code {
+    [Inject]
+    IUserService userService { get; set; }
+
+    [Inject]
+    NavigationManager navigationManager { get; set; }
+    private CreateUserCommand _createUserCommand = new();
+    private bool showModal = false;
+    private string errorStr = "";
+    public async Task RegisterProcess()
+    {
+        try
+        {
+            var result = await userService.RegisterUser(_createUserCommand);
+            if (result)
+            {
+                showModal = true;
+                StateHasChanged();
+                await Task.Delay(3000);
+                navigationManager.NavigateTo("/login");
+            }
+            else
+            {
+                errorStr = "Login failed with unknown reasons!";
+            }
+        }
+        catch (Exception e)
+        {
+            errorStr = e.Message;
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+}
+

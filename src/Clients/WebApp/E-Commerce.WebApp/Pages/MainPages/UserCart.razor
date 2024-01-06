@@ -1,0 +1,53 @@
+﻿@page "/cart"
+@using E_Commerce.WebApp.Infrastructure.Extensions
+@using E_CommerceApp.Common.Models.Queries.User
+@using System.ComponentModel.Design
+<h3>UserCart</h3>
+
+<link href="css/webapp-css/webapp.css" rel="stylesheet" />
+@attribute [Authorize]
+<PageTitle>Products</PageTitle>
+
+<h1>Product</h1>
+
+<div class="card-product">
+    @if (userCart.ProductCount == 0)
+    {
+        <h5>You have no items in your cart, <NavLink href="products">lets add something</NavLink></h5>
+    }
+    else
+    {
+        <ul>
+
+            @foreach (var product in userCart.Products)
+            {
+                <div class="card-product-item">
+                    <h5>@product.ProductName</h5>
+                    <p>@product.Description</p>
+                    <h6 class="price">Price: @($"{product.Price:0.00}") TL</h6>
+                    <h6 class="price">Quantity: @product.Quantity</h6>
+                    <h6 class="price">Total price: @(product.Price * product.Quantity)</h6>
+                </div>
+            }
+            <h5>Total product count: @userCart.ProductCount</h5>
+            <h5>Total price: @userCart.TotalPrice</h5>
+        </ul>
+    }
+</div>
+
+@code {
+    [Inject]
+    AuthenticationStateProvider authenticationStateProvider { get; set; }
+    [Inject]
+    IShoppingCartService shoppingCartService { get; set; }
+    [Inject]
+    IUserService userService { get; set; }
+    GetUserShoppingCartDetailViewModel userCart = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var userId = await authenticationStateProvider.GetUserId();
+        userCart = await userService.GetUserCart(userId);
+    }
+
+}

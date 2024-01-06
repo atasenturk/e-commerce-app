@@ -1,4 +1,5 @@
-﻿@inherits LayoutComponentBase
+﻿@using E_Commerce.WebApp.Infrastructure.Extensions
+@inherits LayoutComponentBase
 
 <div class="page">
     <div class="sidebar">
@@ -11,9 +12,10 @@
                 <Authorized>
                     <div class="container-user-info">
                         <span class="lbl-username">
-                            Logged In!
+                            @GivenName
                         </span>
                     </div>
+                    <NavLink href="logout">Logout</NavLink>
                 </Authorized>
                 <NotAuthorized>
                     <div class="container-user-info">
@@ -24,7 +26,7 @@
                 </NotAuthorized>
             </AuthorizeView>
 
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+
         </div>
 
         <article class="content px-4">
@@ -32,3 +34,33 @@
         </article>
     </main>
 </div>
+
+@code
+{
+    [Inject]
+    NavigationManager navigationManager { get; set; }
+    [Inject]
+    AuthenticationStateProvider authenticationStateProvider { get; set; }
+
+    [Parameter]
+    public Guid UserId { get; set; }
+    public string GivenName { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (string.IsNullOrEmpty(GivenName))
+        {
+            GivenName = await authenticationStateProvider.GetGivenName();
+        }
+    }
+
+    private void NavigateLoginPage()
+    {
+        navigationManager.NavigateTo("/login");
+    }
+
+    private void NavigateRegisterPage()
+    {
+        navigationManager.NavigateTo("/register");
+    }
+}
